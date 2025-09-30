@@ -42,3 +42,12 @@ frontend:
 
 query_scheduler:
   use_scheduler_ring: false
+
+limits_config:
+  otlp_config:
+    resource_attributes:
+      attributes_config:
+      - action: index_label
+        attributes:
+        - component.id
+        - workload.id  
