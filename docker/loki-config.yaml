@@ -51,3 +51,5 @@ limits_config:
         attributes:
         - component.id
         - workload.id  
+        - k8s_resource_name 
+        - level
