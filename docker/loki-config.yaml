@@ -43,6 +43,12 @@ frontend:
 query_scheduler:
   use_scheduler_ring: false
 
+distributor:
+  otlp_config:
+    default_resource_attributes_as_index_labels:
+      - "k8s.resource.name"
+      - "level"
+
 limits_config:
   otlp_config:
     resource_attributes:
@@ -51,5 +57,5 @@ limits_config:
         attributes:
         - component.id
         - workload.id  
-        - k8s.resource 
+        - k8s.resource.name
         - level
