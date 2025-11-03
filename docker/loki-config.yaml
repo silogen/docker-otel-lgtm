@@ -47,7 +47,7 @@ distributor:
   otlp_config:
     default_resource_attributes_as_index_labels:
       - "k8s.resource.name"
-      - "level"
+      - "detected_level"
 
 limits_config:
   otlp_config:
@@ -56,6 +56,6 @@ limits_config:
       - action: index_label
         attributes:
         - component.id
-        - workload.id  
+        - workload.id
         - k8s.resource.name
-        - level
+        - detected_level
