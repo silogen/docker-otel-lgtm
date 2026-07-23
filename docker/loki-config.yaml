@@ -44,6 +44,7 @@ query_scheduler:
   use_scheduler_ring: false
 
 limits_config:
+  retention_period: 168h  # 7 days (24h * 7)
   otlp_config:
     resource_attributes:
       attributes_config:
@@ -52,3 +53,10 @@ limits_config:
         - component.id
         - workload.id
         - log.type
+
+compactor:
+  working_directory: /data/loki/compactor
+  compaction_interval: 10m
+  retention_enabled: true
+  retention_delete_delay: 2h
+  retention_delete_worker_count: 5  # TSDB: 1 file per day (~8 files for 7-day retention)
